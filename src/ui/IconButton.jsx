@@ -1,10 +1,10 @@
-export function IconButton({onClick, src, alt}) {
+export default function Button({onClick, children}) {
     return (
         <button
             className="max-w-8"
             onClick={onClick}
         >
-            <img src={src} alt={alt}/>
+            {children}
         </button>
     )
 }
