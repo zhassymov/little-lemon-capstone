@@ -7,7 +7,7 @@ export default function Hero() {
     return (
         <div className="bg-brand-green">
             <Container>
-                <article className="relative  text-white px-4 py-8">
+                <article className="relative text-white px-4 py-8">
                     <Title>Little Lemon</Title>
                     <Subtitle>Chicago</Subtitle>
                     <p className="font-paragraph max-w-[225px] my-4 pr-2">
