@@ -1,10 +1,9 @@
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import MenuCategories from "./components/MenuCategories";
-import MenuCards from "./components/MenuCards";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 import HomePage from "./pages/HomePage";
+import {Route, Routes} from "react-router-dom";
+import BookingPage from "./pages/BookingPage";
 
 
 export default function App() {
@@ -12,7 +11,10 @@ export default function App() {
         <>
             <Header/>
             <Main>
-                <HomePage/>
+                <Routes>
+                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/booking" element={<BookingPage/>}/>
+                </Routes>
             </Main>
             <Footer/>
         </>
