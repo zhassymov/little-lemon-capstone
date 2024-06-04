@@ -4,6 +4,7 @@ import MenuCategories from "./components/MenuCategories";
 import MenuCards from "./components/MenuCards";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
+import HomePage from "./pages/HomePage";
 
 
 export default function App() {
@@ -11,9 +12,7 @@ export default function App() {
         <>
             <Header/>
             <Main>
-                <Hero/>
-                <MenuCategories/>
-                <MenuCards/>
+                <HomePage/>
             </Main>
             <Footer/>
         </>
