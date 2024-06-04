@@ -35,7 +35,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div className="flex justify-center items-center mt-8">
+                    <div className="font-paragraph-highlight flex justify-center items-center mt-8">
                         <p>Little Lemon &copy; 2024</p>
                     </div>
                 </footer>
