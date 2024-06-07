@@ -43,7 +43,7 @@ export default function MenuCards() {
 
     return (
         <Container>
-            <ul className="p-4 grid md:grid-cols-3 md:gap-6">
+            <ul className="grid md:grid-cols-3 md:gap-6">
                 {dishes.map(({path, name, desc, price, image}) => (
                         <li key={name} className="md:bg-brand-lightgray rounded-2xl">
                             <Link to={path}>

@@ -6,7 +6,7 @@ export default function Footer() {
     return (
         <div className="bg-brand-lightgray">
             <Container>
-                <footer className="font-paragraph px-4 py-8">
+                <footer className="font-paragraph">
                     <div className="grid md:grid-flow-col">
                         <div className="mt-4">
                             <LogoLink/>

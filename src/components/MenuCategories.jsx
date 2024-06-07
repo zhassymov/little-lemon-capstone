@@ -27,7 +27,7 @@ export default function MenuCategories() {
 
     return (
         <Container>
-            <div className="p-4 mt-3 md:mt-24">
+            <div className="mt-2 md:mt-24">
                 <h2 className="font-section-title">Order for delivery!</h2>
                 <ul className="
             mt-3

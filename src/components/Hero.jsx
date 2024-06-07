@@ -5,24 +5,25 @@ import Container from "../ui/Container";
 
 export default function Hero() {
     return (
-        <div className="bg-brand-green">
+        <div className="bg-brand-green text-white">
             <Container>
-                <article className="relative text-white px-4 py-8">
+                <article className="relative">
                     <Title>Little Lemon</Title>
                     <Subtitle>Chicago</Subtitle>
-                    <p className="font-paragraph max-w-[225px] my-4 pr-2">
+                    <p className="max-w-48 my-4 font-paragraph">
                         We are a family owned Mediterranean restaurant,
                         focused on traditional recipes served with a modern twist.
                     </p>
 
                     <Link
-                        className="mx-auto px-3 py-2 rounded-full bg-brand-yellow text-black font-paragraph-highlight"
+                        className="inline-block my-4 px-3 py-2 rounded-full bg-brand-yellow text-black font-paragraph-highlight"
                         to="/booking">
                         Reserve a table
                     </Link>
 
                     <img
-                        className="hidden absolute object-cover overflow-clip rounded-xl top-32 right-4 size-36
+                        className=" absolute object-cover overflow-clip rounded-xl
+                        hidden size-40 top-28 right-0
                         xs:block
 
                         sm:top-16

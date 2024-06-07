@@ -1,57 +1,77 @@
-function WeekDays() {
-    const weekDays = [];
+import Select from "../ui/Select";
+
+function WeekDayOptions() {
+    const options = [{label: "Date", value: "", disabled: true}];
     for (let i = 0; i < 7; i++) {
-        const date = new Date()
-        date.setDate(date.getDate() + i)
-        const text = date.toLocaleDateString(undefined, {
+        const value = new Date()
+        value.setDate(value.getDate() + i)
+        const label = value.toLocaleDateString(undefined, {
             weekday: 'short',
             year: 'numeric',
             month: 'short',
             day: 'numeric',
         })
-        weekDays.push({date, text})
+        options.push({value, label})
     }
-    return weekDays;
+    return options;
 }
 
-function DayTimes() {
-    const dayTimes = [];
+function DayTimeOptions() {
+    const options = [{label: "Time", value: "", disabled: true}];
     for (let i = 17; i <= 22; i++) {
-        dayTimes.push(`${i}:00`)
+        const time = `${i}:00`;
+        options.push({label: time, value: time});
     }
-    return dayTimes;
+    return options;
 }
 
-function Occasions() {
-    return ["Birthday", "Engagement", "Anniversary"];
+function DinnersOptions() {
+    const options = [{label: "Number of Diners", value: "", disabled: true}];
+    for (let i = 1; i <= 10; i++) {
+        options.push({label: i, value: i})
+    }
+    return options
+}
+
+function OccasionOptions() {
+    return [
+        {label: "Occasion", value: "", disabled: true},
+        {label: "Birthday", value: "birthday"},
+        {label: "Engagement", value: "engagement"},
+        {label: "Anniversary", value: "anniversary"},
+    ];
 }
 
 export default function BookingForm() {
-    const weekDays = WeekDays();
-    const dayTimes = DayTimes();
-    const occasions = Occasions();
 
     return (
         <form method="POST"
-              className="grid gap-5 text-black *:font-paragraph *:font-bold *:text-md *:placeholder:text-black">
+              className="grid gap-5 *:font-paragraph *:font-bold *:text-md *:placeholder:text-black">
             <div className="grid grid-cols-2 gap-4">
-                <select name="bookibg-date" aria-label="Booking date" defaultValue="" className="p-2 appearance-none">
-                    <option value="" disabled>Date</option>
-                    {weekDays.map(({date, text}) => <option key={text} value={date}>{text}</option>)}
-                </select>
-                <select name="bookibg-time" aria-label="Booking time" defaultValue="" className="p-2">
-                    <option value="" disabled>Time</option>
-                    {dayTimes.map((time) => <option key={time} value={time}>{time}</option>)}
-                </select>
+                <Select
+                    id={"booking-date"}
+                    name={"booking-date"}
+                    options={WeekDayOptions()}
+                />
+                <Select
+                    id="bookibg-time"
+                    name="bookibg-time"
+                    options={DayTimeOptions()}
+                />
             </div>
-            <input name="diners" type="number" aria-label="Number of Diners" min="1" max="10"
-                   placeholder="Number of Diners" className="p-2"/>
-            <select name="occasion" aria-label="Occasion" defaultValue="" className="p-2">
-                <option value="" disabled>Occasion</option>
-                {occasions.map((occasion) => <option key={occasion} value={occasion}>{occasion}</option>)}
-            </select>
 
+            <Select
+                id="dinners"
+                name="dinners"
+                options={DinnersOptions()}
+            />
 
+            <Select
+                id="occasion"
+                name="occasion"
+                options={OccasionOptions()}
+            />
+            
             <div className="grid gap-3 text-white">
                 <p className="font-card-title">Seating Options</p>
                 <div className="flex font-paragraph">
@@ -73,13 +93,11 @@ export default function BookingForm() {
             </div>
 
             <button type="submit"
-                    className="mt-4 py-4 rounded-2xl bg-brand-yellow text-black font-bold text-xl
-                    md:w-1/2 md:mx-auto"
+                    className="my-4 py-4 rounded-2xl bg-brand-yellow text-black font-bold text-xl
+                md:w-1/2 md:mx-auto"
             >Let's go
             </button>
         </form>
-
-
     )
 }
 
