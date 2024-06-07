@@ -22,7 +22,7 @@ export default function MenuCard({name, desc, price, image}) {
                         {price}
                     </p>
                 </div>
-                <img src={image} alt="A photo of the food"
+                <img src={image} alt="Food illustration"
                      className="object-cover rounded size-20
                          md:order-first
                          md:w-full
