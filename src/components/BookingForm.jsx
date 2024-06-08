@@ -2,45 +2,7 @@ import {useForm} from "react-hook-form";
 import {useState} from "react";
 import {InvitingPictures} from "./InvitingPictures";
 
-function WeekDayOptions() {
-    const options = [{label: "Date", value: "", disabled: true}];
-    for (let i = 0; i < 7; i++) {
-        const value = new Date()
-        value.setDate(value.getDate() + i)
-        const label = value.toLocaleDateString(undefined, {
-            weekday: 'short',
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-        })
-        options.push({value: label, label})
-    }
-    return options;
-}
-
-function DayTimeOptions() {
-    const options = [{label: "Time", value: "", disabled: true}];
-    for (let i = 17; i <= 22; i++) {
-        const time = `${i}:00`;
-        options.push({label: time, value: time});
-    }
-    return options;
-}
-
-function OccasionOptions() {
-    return [
-        {label: "Occasion", value: "", disabled: true},
-        {label: "Birthday", value: "Birthday"},
-        {label: "Engagement", value: "Engagement"},
-        {label: "Anniversary", value: "Anniversary"},
-    ];
-}
-
-export default function BookingForm() {
-    const weekDayOptions = WeekDayOptions()
-    const dayTimeOptions = DayTimeOptions()
-    const occasionOptions = OccasionOptions()
-
+export default function BookingForm({weekDayOptions, dayTimeOptions, occasionOptions}) {
     const [submitted, setSubmitted] = useState(false)
 
     const {
