@@ -47,7 +47,7 @@ export default function BookingForm() {
         register,
         formState: {
             errors,
-            isValid,
+            isSubmitting,
         },
         handleSubmit,
         watch,
@@ -123,9 +123,18 @@ export default function BookingForm() {
 
                     <div className="grid">
                         {errors?.bookingDate &&
-                            <p className="font-paragraph text-red-500 text-sm">{errors?.bookingDate?.message}</p>}
+                            <p
+                                data-testid="bookingDateError"
+                                className="font-paragraph text-red-500 text-sm">
+                                {errors?.bookingDate?.message}
+                            </p>
+                        }
                         {errors?.bookingTime &&
-                            <p className="font-paragraph text-red-500 text-sm">{errors?.bookingTime?.message}</p>}
+                            <p
+                                data-testid="bookingTimeError"
+                                className="font-paragraph text-red-500 text-sm">
+                                {errors?.bookingTime?.message}
+                            </p>}
                     </div>
 
                     <input
@@ -151,7 +160,11 @@ export default function BookingForm() {
 
                     <div className="grid">
                         {errors?.dinners &&
-                            <p className="font-paragraph text-red-500 text-sm">{errors?.dinners?.message}</p>}
+                            <p
+                                data-testid="dinnersError"
+                                className="font-paragraph text-red-500 text-sm">
+                                {errors?.dinners?.message}
+                            </p>}
                     </div>
 
                     <select
@@ -203,8 +216,9 @@ export default function BookingForm() {
                     </div>
 
                     <button
+                        data-testId="submitBooking"
                         type="submit"
-                        disabled={!isValid}
+                        disabled={isSubmitting}
                         className="
                     my-4 py-4
                     rounded-2xl
